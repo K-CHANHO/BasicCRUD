@@ -32,6 +32,7 @@ class BoardRepositoryTest {
                     .build();
 
             boardRepository.save(board);
+
         });
     }
 }
