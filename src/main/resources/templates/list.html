@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>방명록</title>
+</head>
+<style>
+    div {
+        border: 1px solid black;
+        margin: 3px;
+    }
+</style>
+<body>
+
+    <div th:each="board : ${boards}">
+        <p>번호 : [[${board.bno}]]</p>
+        <p>닉네임 : [[${board.nickname}]]</p>
+        <p>[[${board.content}]]</p>
+    </div>
+
+</body>
+</html>

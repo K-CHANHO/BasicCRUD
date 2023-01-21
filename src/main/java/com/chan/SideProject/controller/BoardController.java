@@ -1,6 +1,5 @@
 package com.chan.SideProject.controller;
 
-import com.chan.SideProject.repository.BoardRepository;
 import com.chan.SideProject.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +13,10 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping({"", "list"})
-    public void list(Model model) {
+    public String list(Model model) {
         model.addAttribute("boards", boardService.getAllBoard());
+
+        return "list";
     }
 
 
