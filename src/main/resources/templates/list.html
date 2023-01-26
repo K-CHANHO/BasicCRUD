@@ -5,14 +5,49 @@
     <title>방명록</title>
 </head>
 <style>
-    div {
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .form {
+        height: 40%;
+    }
+
+    .form form {
+        height: 100%;
+    }
+
+    .form textarea {
+        width: 100%;
+        height: 70%;
+    }
+
+    .board {
         border: 1px solid black;
         margin: 3px;
+        width: 100%;
+        height: 15%;
     }
 </style>
 <body>
+    <div class="form">
+        <form action="/save" method="post">
+            <div>
+                <input type="text" name="nickname" placeholder="닉네임을 입력하세요" required>
+            </div>
+            <textarea name="content" placeholder="내용을 입력하세요" required></textarea>
 
-    <div th:each="board : ${boards}">
+            <button>등록</button>
+        </form>
+    </div>
+
+
+    <div th:each="board : ${boards}" class="board">
         <p>번호 : [[${board.bno}]]</p>
         <p>닉네임 : [[${board.nickname}]]</p>
         <p>[[${board.content}]]</p>
