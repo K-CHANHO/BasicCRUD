@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface BoardService {
 
+
     List<BoardDTO> getAllBoard(); // 방명록 가져오기
+
+    Long save(Long wno, BoardDTO boardDTO);
 
     default BoardDTO entityToDTO(Board board){
 
@@ -19,6 +22,16 @@ public interface BoardService {
                 .build();
 
         return boardDTO;
+    }
+
+    default Board DtoToEntity(Long wno, BoardDTO boardDTO) {
+
+        Board board = Board.builder()
+                .writer(Writer.builder().wno(wno).build())
+                .content(boardDTO.getContent())
+                .build();
+
+        return board;
     }
 
 }

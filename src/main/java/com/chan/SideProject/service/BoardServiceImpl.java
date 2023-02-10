@@ -4,6 +4,7 @@ import com.chan.SideProject.dto.BoardDTO;
 import com.chan.SideProject.entity.Board;
 import com.chan.SideProject.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,12 +20,20 @@ public class BoardServiceImpl implements BoardService{
     public List<BoardDTO> getAllBoard() {
 
         List<BoardDTO> boardDTOs = new ArrayList<>();
-        List<Board> boards = boardRepository.findAll();
+        List<Board> boards = boardRepository.findAll(Sort.by(Sort.Direction.DESC, "bno"));
 
         boards.forEach(board -> {
             boardDTOs.add(entityToDTO(board));
         });
 
         return boardDTOs;
+    }
+
+    @Override
+    public Long save(Long wno, BoardDTO boardDTO) {
+        Board board = DtoToEntity(wno, boardDTO);
+        boardRepository.save(board);
+
+        return board.getBno();
     }
 }
