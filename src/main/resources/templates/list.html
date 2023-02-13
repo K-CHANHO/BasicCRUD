@@ -39,7 +39,7 @@
         <form action="/save" method="post">
             <div>
                 <input type="text" name="nickname" placeholder="닉네임을 입력하세요" required>
-                <input type="password" name="password" placeholder="닉네임을 입력하세요" required>
+                <input type="password" name="password" placeholder="비밀번호를 입력하세요" required>
             </div>
             <textarea name="content" placeholder="내용을 입력하세요" required></textarea>
 
@@ -49,9 +49,9 @@
 
     <div th:each="board : ${boards}" class="board">
         <form action="/modify" method="post">
-            <input type="hidden" readonly>번호 : [[${board.bno}]]</input>
-            <input type="text" readonly>닉네임 : [[${board.nickname}]]</input>
-            <input type="text" readonly>[[${board.content}]]</input>
+            <input type="hidden" th:value="${board.bno}" readonly><br>
+            <input type="text" th:value="|작성자 : ${board.nickname}|" readonly><br>
+            <textarea readonly>[[${board.content}]]</textarea><br>
 
             <button type="button" class="update">수정</button>
             <button type="button" class="delete">삭제</button>
