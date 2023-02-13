@@ -47,12 +47,19 @@
         </form>
     </div>
 
-
     <div th:each="board : ${boards}" class="board">
-        <p>번호 : [[${board.bno}]]</p>
-        <p>닉네임 : [[${board.nickname}]]</p>
-        <p>[[${board.content}]]</p>
+        <form action="/modify" method="post">
+            <input type="hidden" readonly>번호 : [[${board.bno}]]</input>
+            <input type="text" readonly>닉네임 : [[${board.nickname}]]</input>
+            <input type="text" readonly>[[${board.content}]]</input>
+
+            <button type="button" class="update">수정</button>
+            <button type="button" class="delete">삭제</button>
+        </form>
     </div>
 
+    <script>
+
+    </script>
 </body>
 </html>

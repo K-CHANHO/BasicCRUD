@@ -20,7 +20,7 @@ public class Board {
     @Lob
     private String content;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Writer writer;
 
 }

@@ -33,4 +33,10 @@ public class BoardController {
 
         return "redirect:/list";
     }
+
+    @PostMapping("/delete")
+    public String delete() {
+
+        return "redirect:/list";
+    }
 }
