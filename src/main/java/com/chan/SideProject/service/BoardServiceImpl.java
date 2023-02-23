@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -36,4 +37,14 @@ public class BoardServiceImpl implements BoardService{
 
         return board.getBno();
     }
+
+    @Override
+    public BoardDTO getOneBoard(Long bno) {
+        Board board = boardRepository.findById(bno).get();
+        BoardDTO boardDTO = entityToDTO(board);
+
+        return boardDTO;
+    }
+
+
 }

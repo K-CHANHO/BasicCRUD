@@ -14,4 +14,5 @@ public class BoardDTO {
 
     private String nickname;
 
+    private Long wno;
 }

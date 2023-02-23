@@ -10,6 +10,7 @@ public interface BoardService {
 
 
     List<BoardDTO> getAllBoard(); // 방명록 가져오기
+    BoardDTO getOneBoard(Long bno); // 해당 bno의 방명록 가져오기
 
     Long save(Long wno, BoardDTO boardDTO);
 
@@ -19,6 +20,7 @@ public interface BoardService {
                 .bno(board.getBno())
                 .content(board.getContent())
                 .nickname(board.getWriter().getNickname())
+                .wno(board.getWriter().getWno())
                 .build();
 
         return boardDTO;
@@ -27,6 +29,7 @@ public interface BoardService {
     default Board DtoToEntity(Long wno, BoardDTO boardDTO) {
 
         Board board = Board.builder()
+                .bno(boardDTO.getBno())
                 .writer(Writer.builder().wno(wno).build())
                 .content(boardDTO.getContent())
                 .build();

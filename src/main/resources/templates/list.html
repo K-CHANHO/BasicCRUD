@@ -62,7 +62,7 @@
             <input type="text" th:value="|작성자 : ${board.nickname}|" readonly><br>
             <textarea readonly>[[${board.content}]]</textarea><br>
 
-            <button type="button" class="update">수정</button>
+            <a th:href="@{/modify/{bno}(bno=${board.bno})}"><button type="button" class="update">수정</button></a>
             <button type="button" class="delete">삭제</button>
         </form>
     </div>

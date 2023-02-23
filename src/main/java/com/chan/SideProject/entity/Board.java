@@ -1,10 +1,12 @@
 package com.chan.SideProject.entity;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
 @Entity
+@DynamicUpdate
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
