@@ -14,6 +14,8 @@ public interface BoardService {
 
     Long save(Long wno, BoardDTO boardDTO);
 
+    void delete(Long bno);
+
     default BoardDTO entityToDTO(Board board){
 
         BoardDTO boardDTO = BoardDTO.builder()

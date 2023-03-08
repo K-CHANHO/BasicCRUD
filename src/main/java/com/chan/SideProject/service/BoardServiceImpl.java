@@ -46,5 +46,8 @@ public class BoardServiceImpl implements BoardService{
         return boardDTO;
     }
 
-
+    @Override
+    public void delete(Long bno) {
+        boardRepository.deleteById(bno);
+    }
 }

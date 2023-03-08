@@ -48,4 +48,10 @@ public class BoardController {
 
         return "redirect:/list";
     }
+
+    @GetMapping("/delete/{bno}")
+    public String delete(@PathVariable Long bno){
+        boardService.delete(bno);
+        return "redirect:/list";
+    }
 }

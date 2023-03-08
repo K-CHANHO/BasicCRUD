@@ -60,7 +60,7 @@
             <textarea readonly>[[${board.content}]]</textarea><br>
 
             <a th:href="@{/modify/{bno}(bno=${board.bno})}"><button type="button" class="update">수정</button></a>
-            <button type="button" class="delete">삭제</button>
+            <a th:href="@{/delete/{bno}(bno=${board.bno})}"><button type="button" class="delete">삭제</button></a>
         </form>
     </div>
 
